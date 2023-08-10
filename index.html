@@ -6,33 +6,48 @@
 <style>
   body {
     font-family: Arial, sans-serif;
+    text-align: center;
     background-color: #f2f2f2;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
   }
   .container {
-    text-align: center;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
-  #message {
+  #dailyWord {
     font-size: 24px;
-    color: #ff6600;
-    font-weight: bold;
     margin-bottom: 10px;
   }
+  #design {
+    color: #ff0000;
+    font-weight: bold;
+  }
 </style>
+<script>
+  const dailyWords = [
+    "Ikan Gabus Makan Tikus, Untuk Meneruskan Silaturahmi Pinjam Dulu Seratus", "Ikan Tomat Makan Tikus, Pinjam Dulu Seratus", "Jika Tidak Ada Yang Tulus, Maka Pinjam Dulu Seratus"
+    // Tambahkan kata-kata harian lainnya di sini
+  ];
+
+  function getRandomWord() {
+    const index = Math.floor(Math.random() * dailyWords.length);
+    return dailyWords[index];
+  }
+
+  function updateDailyWord() {
+    const dailyWordElement = document.getElementById("dailyWord");
+    dailyWordElement.textContent = getRandomWord();
+  }
+</script>
 </head>
-<body>
+<body onload="updateDailyWord()">
   <div class="container">
-    <p id="message">WEBSITE BELUM JADI</p>
-    <p>Sabar Njir.</p>
+    <h1>P!</h1>
+    <p>Kata-kata Buat Lu Nih Njir:</p>
+    <p id="dailyWord"></p>
+    <p>Tetap <span id="design">hidup</span> ya njir dan nikmati hari lu!</p>
   </div>
 </body>
 </html>
