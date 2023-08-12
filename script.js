@@ -44,7 +44,7 @@ function sendWhatsAppMessage() {
   
   // Update the WhatsApp link to include the message
   const whatsappLink = document.getElementById("whatsappLink");
-  whatsappLink.href = `https://wa.me/whatsappphonenumber/?text=${encodedMessage}`;
+  whatsappLink.href = `https://wa.me/6283817424428/?text=${encodedMessage}`;
 }
 
 // Initial setup
