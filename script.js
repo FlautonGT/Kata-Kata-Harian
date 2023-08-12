@@ -17,5 +17,36 @@ function updateDailyWord() {
   dailyWordElement.textContent = getRandomWord();
 }
 
+function requestWord() {
+  const email = prompt("Please enter your email:");
+  if (email) {
+    const word = getRandomWord();
+
+    // Send the email and word to the server
+    fetch("send_email.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, word: word }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("Word requested successfully! It will be sent to your email.");
+      } else {
+        alert("Failed to send email. Please try again later.");
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again later.");
+    });
+  }
+}
+
+// Initial update
 updateDailyWord();
+
+// Update every hour
 setInterval(updateDailyWord, 3600000); // Update every 1 hour (in milliseconds)
