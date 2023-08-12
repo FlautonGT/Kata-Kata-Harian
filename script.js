@@ -18,25 +18,22 @@ function updateDailyWord() {
 }
 
 function sendWhatsAppMessage() {
-  const wordInput = document.getElementById("wordInput");
-  const word = wordInput.value;
-  
-  if (word) {
-    const message = `Nih Bang Kata Kata : "${word}".`;
-    const encodedMessage = encodeURIComponent(message);
-    
-    // Update the WhatsApp link to include the message
-    const whatsappLink = document.getElementById("whatsappLink");
-    whatsappLink.href = `https://wa.me/6283817424428/?text=${encodedMessage}`;
-  } else {
-    alert("Please enter a word before sending the request.");
-  }
+  const word = getRandomWord();
+  const message = `Hello! Please send me the daily word. My email: [Your Email]`;
+
+  // Update the WhatsApp link to include the message
+  const whatsappLink = document.getElementById("whatsappLink");
+  whatsappLink.href = `https://wa.me/6283817424428/?text=${encodeURIComponent(message)}`;
 }
 
 // Initial setup
 updateDailyWord();
 setInterval(updateDailyWord, 3600000); // Update every 1 hour (in milliseconds)
 
-// Set up the Request button
-const requestButton = document.getElementById("requestButton");
-requestButton.addEventListener("click", sendWhatsAppMessage);
+// Set up the Refresh button
+const refreshButton = document.getElementById("refreshButton");
+refreshButton.addEventListener("click", updateDailyWord);
+
+// Set up the WhatsApp link
+const whatsappLink = document.getElementById("whatsappLink");
+whatsappLink.addEventListener("click", sendWhatsAppMessage);
