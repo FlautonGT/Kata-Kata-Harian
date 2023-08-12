@@ -17,50 +17,23 @@ function updateDailyWord() {
   dailyWordElement.textContent = getRandomWord();
 }
 
-function requestWord() {
-  const emailInput = document.getElementById("emailInput");
-  const email = emailInput.value;
+function sendWhatsAppMessage() {
+  const word = getRandomWord();
+  const message = `Hello! Please send me the daily word.`;
 
-  if (email) {
-    const word = getRandomWord();
-
-    // Send the email and word to the server
-    fetch("send_email.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: email, word: word }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        alert("Word requested successfully! It will be sent to your email.");
-      } else {
-        alert("Failed to send email. Please try again later.");
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again later.");
-    });
-  }
-}
-
-function toggleSections(requestVisible) {
-  const requestSection = document.getElementById("requestSection");
-  const refreshSection = document.getElementById("refreshSection");
-
-  if (requestVisible) {
-    requestSection.style.display = "block";
-    refreshSection.style.display = "none";
-  } else {
-    requestSection.style.display = "none";
-    refreshSection.style.display = "block";
-  }
+  // Update the WhatsApp link to include the message
+  const whatsappLink = document.getElementById("whatsappLink");
+  whatsappLink.href = `https://wa.me/6283817424428/?text=${encodeURIComponent(message)}`;
 }
 
 // Initial setup
-toggleSections(true);
 updateDailyWord();
 setInterval(updateDailyWord, 3600000); // Update every 1 hour (in milliseconds)
+
+// Set up the Refresh button
+const refreshButton = document.getElementById("refreshButton");
+refreshButton.addEventListener("click", updateDailyWord);
+
+// Set up the WhatsApp link
+const whatsappLink = document.getElementById("whatsappLink");
+whatsappLink.addEventListener("click", sendWhatsAppMessage);
