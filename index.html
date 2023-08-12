@@ -1,53 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f2f2f2;
-  }
-  .container {
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  #dailyWord {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  #design {
-    color: #ff0000;
-    font-weight: bold;
-  }
-</style>
-<script>
-  const dailyWords = [
-    "Ikan Gabus Makan Tikus, Untuk Meneruskan Silaturahmi Pinjam Dulu Seratus", "Ikan Tomat Makan Tikus, Pinjam Dulu Seratus", "Jika Tidak Ada Yang Tulus, Maka Pinjam Dulu Seratus"
-    // Tambahkan kata-kata harian lainnya di sini
-  ];
-
-  function getRandomWord() {
-    const index = Math.floor(Math.random() * dailyWords.length);
-    return dailyWords[index];
-  }
-
-  function updateDailyWord() {
-    const dailyWordElement = document.getElementById("dailyWord");
-    dailyWordElement.textContent = getRandomWord();
-  }
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Daily Words</title>
 </head>
-<body onload="updateDailyWord()">
+<body>
   <div class="container">
-    <h1>P!</h1>
-    <p>Kata-kata Buat Lu Nih Njir:</p>
+    <h1>Daily Words</h1>
     <p id="dailyWord"></p>
-    <p>Tetap <span id="design">hidup</span> ya njir dan nikmati hari lu!</p>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
