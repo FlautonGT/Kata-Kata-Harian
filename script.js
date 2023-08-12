@@ -18,7 +18,9 @@ function updateDailyWord() {
 }
 
 function requestWord() {
-  const email = prompt("Please enter your email:");
+  const emailInput = document.getElementById("emailInput");
+  const email = emailInput.value;
+
   if (email) {
     const word = getRandomWord();
 
@@ -45,8 +47,20 @@ function requestWord() {
   }
 }
 
-// Initial update
-updateDailyWord();
+function toggleSections(requestVisible) {
+  const requestSection = document.getElementById("requestSection");
+  const refreshSection = document.getElementById("refreshSection");
 
-// Update every hour
+  if (requestVisible) {
+    requestSection.style.display = "block";
+    refreshSection.style.display = "none";
+  } else {
+    requestSection.style.display = "none";
+    refreshSection.style.display = "block";
+  }
+}
+
+// Initial setup
+toggleSections(true);
+updateDailyWord();
 setInterval(updateDailyWord, 3600000); // Update every 1 hour (in milliseconds)
