@@ -6,12 +6,13 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background: url("https://1.bp.blogspot.com/-VmPseEWRssk/X4fNk4DZNiI/AAAAAAAAFAM/Njfr182v89svzUeIosCZMPszhjr45h4rQCLcBGAsYHQ/s320/Gambar6.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 .container {
   text-align: center;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
