@@ -10,12 +10,9 @@
   <div class="container">
     <h1>Daily Words</h1>
     <p id="dailyWord"></p>
-    <div id="requestSection">
-      <button class="button" onclick="requestWord()">Request Word</button>
-      <input type="email" id="emailInput" placeholder="Your Email">
-    </div>
-    <div id="refreshSection">
-      <button class="button" onclick="updateDailyWord()">Refresh</button>
+    <div class="buttons">
+      <button class="button" id="refreshButton">Refresh</button>
+      <a class="button" id="whatsappLink" href="javascript:void(0)">Request Word via WhatsApp</a>
     </div>
   </div>
   <script src="script.js"></script>
